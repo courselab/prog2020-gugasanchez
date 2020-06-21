@@ -21,21 +21,17 @@
 #define USAGE "m001 <num1> <num2> <num3>\n"
 
 /* Return the greatest among a, b and c. */
-int greatest (int a, int b, int c)
+int greatest(int a, int b, int c)
 {
-  if (a>b && a>c)
-  {
+  if(a>b && a>c) {
   return a;
   }
-  else
-  {
-      if (b>a && b>c)
-      {
-          return b;
+  else {
+    if(b>a && b>c) {
+      return b;
       }
-      else
-      {
-          return c;
+    else {
+      return c;
       }
   }
 }
