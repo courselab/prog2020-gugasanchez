@@ -25,16 +25,20 @@
 #define MAX 256
 
 /* Count the number of letters in string s.*/
-
 int lettercount (char *s)
 {
-  return 0;
+  int i, digits=0;
+
+  for(i=0; s[i]!=0; i++) {
+    if(isalpha(s[i]) != 0) {
+    digits++;
+    }
+  }
+
+  return digits;
 }
 
-
-
 /* Do not edit this function. */
-
 int main (int argc, char **argv)
 {
   int n;
