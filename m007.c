@@ -28,8 +28,8 @@
 /* Count the number of letters in string s.*/
 int lettercount (char *s)
 {
- int i, n;
- int count=0; 
+  int i, n;
+  int count=0; 
 
   n = strlen(s);
   
