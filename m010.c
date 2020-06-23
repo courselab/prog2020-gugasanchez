@@ -51,32 +51,32 @@ int day_of_week (int day, int month)
   current =+ day;
 
   switch (current%7) {
-    case 6:
-      return mon;
-    break;
-
     case 5:
       return sun;
     break;
 
-    case 4:
-      return sat;
+    case 6:
+      return mon;
+    break;
+
+    case 0:
+      return tue;
     break;
     
-    case 3:
-      return fri;
+    case 1:
+      return wed;
     break;
 
     case 2:
       return thu;
     break;
 
-    case 1:
-      return wed;
+    case 3:
+      return fri;
     break;
     
-    case 0:
-      return tue;
+    case 4:
+      return sat;
     break;
 
     default:
