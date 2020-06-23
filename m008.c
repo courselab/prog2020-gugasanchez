@@ -54,6 +54,7 @@ void lastname(char *s) {
   s[n] = ',';
   n++;
   s[n] = ' ';
+  n++;
 
   i=0;
   for(i=n; i!=v; i++) {
