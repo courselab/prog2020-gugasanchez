@@ -33,7 +33,7 @@ int lettercount (char *s)
 
   n = strlen(s);
   
-  for(i=0; i <= n-2 ; i++) {
+  for(i=0; i<=(n-2); i++) {
    if((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z')) {
    count++;
    }
