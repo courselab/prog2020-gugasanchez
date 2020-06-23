@@ -45,12 +45,12 @@ int day_of_week (int day, int month)
   days[11]=31;
 
   for(i=0; i<(month-1); i++) {
-    current =+ days[i];       
+    current += days[i];       
   }
 
-  current =+ day;
+  current += day;
 
-  switch (current%7) {
+  switch(current%7) {
     case 5:
       return sun;
     break;
