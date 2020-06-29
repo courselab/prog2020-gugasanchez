@@ -28,39 +28,40 @@
 
 /* Converts the string 's' from first-middle-last name 
    form into LAST-first-middle form. */
-void lastname(char *s) {
-  int i, x, v, n=0, k=0;
-  char t[MAX];
+void lastname (char *c)
+{
+  char copied[MAX];
+  char finalv[MAX];
+  int i=0, j, lastspace, length;
 
-  strcpy(t, s);
-  v = strlen(t)-1;
+  strcpy(copied, c);
+  length = strlen(copied);
 
-  for(i=v; t[i]!=' '; i--) {}
-
-  x = i+1;
-
-  i=0;
-  for(i=x; i!=v; i++) {
-    s[n] = t[i];
-    n++;
-  }
- 
-  for(i=0; i<=n-1; i++) {
-    if((s[i] >= 'a') && (s[i] <= 'z')) {
-      s[i] = s[i] - ' ';
-    }  
+  while(copied[i] != 0) {
+    if(copied[i] == ' ') {
+      lastspace = i;
+    }
+    i++;
   }
 
-  s[n] = ',';
-  n++;
-  s[n] = ' ';
-  n++;
-
-  i=0;
-  for(i=n; i!=v; i++) {
-    s[i] = t[k];
-    k++;  
+  for(j=(lastspace+1); j<length; j++) {
+    if((copied[j]>='a') && (copied[j]<='z')) {
+      finalv[j-(lastspace+1)] = copied[j] - ' ';
+    }
+    else {
+      finalv[j-(lastspace+1)] = copied[j];
+    }
   }
+
+  finalv[length-(lastspace+2)] = ',';
+  finalv[length-(lastspace+1)] = ' ';
+
+  for(j=0; j<lastspace; j++) {
+    finalv[length-lastspace+j] = copied[j];
+  }
+  
+  finalv[length] = 0;
+  strcpy(c, finalv);
 }
 
 /* Do not edit this function. */
