@@ -26,17 +26,25 @@
    characters other than '1's and '0's, truncate the string
    right before the spurious character (eg. truncate 110x001
    into 110); an empty string means zero. */
-
-int decimal (char *b)
+int decimal(char *b)
 {
+  int n, remainder, decimal=0, base=1;
+
+  n = atoi(b);
+
+  while(n != 0) {
+    remainder = n%10;
+    decimal += remainder*base;
+    n = n/10;
+    base = base*2;
+  }
   
-  return 0;
+  return decimal;
 }
 
 #define USAGE "m004 <string>\n"
 
 /* Do not edit this function. */
-
 int main (int argc, char **argv)
 {
   int n;

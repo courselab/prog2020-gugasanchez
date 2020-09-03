@@ -21,18 +21,37 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define USAGE "m011 <filename>\n"
 
 /* Return the number of words in ascii text file 'filename'.*/
-
 int wordcount (char *filename)
 {
-  return 0;
+  FILE *file;
+  int i, nwords=0, length;
+  char str[2048];
+
+  file = fopen(filename, "r");
+
+  while(fgets(str, 150, file) != 0) {
+    if(str[0] != '\n') {
+      length = strlen(str);
+
+      for(i=0; i<length; i++) {
+        if (str[i] == ' ')
+          nwords++;
+      }
+
+      nwords++;
+    }
+  }
+
+  fclose(file);
+  return nwords;
 }
 
 /* Do not edit function main. */
-
 int main (int argc, char **argv)
 {
   int n;

@@ -22,15 +22,35 @@
 #define MAX 100
 
 /* Sort the first 'n' integers values in 'vector'. */
-
 void sort (int* vector, int n)
 {
+  int copied[MAX], ordered[MAX];
+  int i, j, invert;
+
+  for(i=0; i<n; i++) {
+    copied[i] = vector[i];
+  }
+
+  for(i=0; i<n; i++) {
+    invert=0;
+
+    for(j=0; j<n; j++) {
+      if(copied[j] >= copied[invert])
+        invert=j;
+    }
+
+    ordered[i] = copied[invert];
+    copied[invert] = -32767;
+  }
+
+  for(i=0; i<n; i++) {
+    vector[i] = ordered[n-(i+1)];
+  }
 }
 
 #define USAGE "m009 <num1> <nun2> ... \n"
 
 /* Do not edit this function. */
-
 int main (int argc, char **argv)
 {
   int values[MAX];

@@ -24,16 +24,25 @@
 #include <stdlib.h>
 
 /* Return the determinant of a 3x3 integer matrix.*/
-
 int determinant (int m[3][3])
 {
-  return 0;
+  int a, b, c, d, e, f;
+  int det;
+
+  a = m[0][0] * m[1][1] * m[2][2];
+  b = m[0][1] * m[1][2] * m[2][0];
+  c = m[0][2] * m[1][0] * m[2][1];
+
+  d = m[0][2] * m[1][1] * m[2][0];
+  e = m[0][0] * m[1][2] * m[2][1];
+  f = m[0][1] * m[1][0] * m[2][2];
+
+  det = (a+b+c) - (d+e+f);
+
+  return det;
 }
 
-
-
 /* Do not edit this function. */
-
 int main (int argc, char **argv)
 {
   int a[3][3];

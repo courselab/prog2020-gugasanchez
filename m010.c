@@ -27,14 +27,65 @@ enum {sun, mon, tue, wed, thu, fri, sat};
 
 /* Return the day of the week in the numeric form:
    Sunday=0, Monday=1... Saturday=6.*/
-
 int day_of_week (int day, int month)
 {
-  return sun;
+  int i, current=0, days[12];
+
+  days[0]=31;
+  days[1]=29;
+  days[2]=31;
+  days[3]=30;
+  days[4]=31;
+  days[5]=30;
+  days[6]=31;
+  days[7]=31;
+  days[8]=30;
+  days[9]=31;
+  days[10]=30;
+  days[11]=31;
+
+  for(i=0; i<(month-1); i++) {
+    current += days[i];       
+  }
+
+  current += day;
+
+  switch(current%7) {
+    case 5:
+      return sun;
+    break;
+
+    case 6:
+      return mon;
+    break;
+
+    case 0:
+      return tue;
+    break;
+    
+    case 1:
+      return wed;
+    break;
+
+    case 2:
+      return thu;
+    break;
+
+    case 3:
+      return fri;
+    break;
+    
+    case 4:
+      return sat;
+    break;
+
+    default:
+      return 0;
+    break;
+  }
 }
 
 /* Do not edit function main. */
-
 int main (int argc, char **argv)
 {
   int day, month, dweek;

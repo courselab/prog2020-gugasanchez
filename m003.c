@@ -20,16 +20,27 @@
 #include <stdlib.h>
 
 /* Verify if the positive integer 'a' is prime. */
-
 int is_prime (int a)
 {
-  return 0;
+  int i, j=0;
+    
+  for(i=1; i<a; i++) {
+    if(a%i == 0) {
+      j++;
+    }
+  }
+    
+  if (j==1) {
+    return 1;
+  }
+  else {
+    return 0;
+  }
 }
 
 #define USAGE "m003 <num>\n"
 
 /* Do not edit this function. */
-
 int main (int argc, char **argv)
 {
   int n;
